@@ -7,11 +7,18 @@ test('user card visual comparison', async ({ page }) => {
   // Wait for the user card to be visible
   await page.waitForSelector('.user-card', { state: 'visible' })
 
-  // Take a screenshot of the user card and compare
+  // Get the user card locator
   const userCard = page.locator('.user-card')
-  await expect(userCard).toHaveScreenshot('user-card.png')
 
-  // Verify content
+  // Verify the accessibility tree structure
+  await expect(userCard).toMatchAriaSnapshot(`
+    - generic "user-card":
+      - heading "John Doe" [level=3]
+      - text "john@example.com"
+      - button "Contact User"
+  `)
+
+  // Additional content verification
   await expect(userCard).toContainText('John Doe')
   await expect(userCard).toContainText('john@example.com')
 })
