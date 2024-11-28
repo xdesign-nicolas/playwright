@@ -31,9 +31,9 @@ jobs:
 
       - name: Serve the app and run tests
         run: |
-          npx serve -s build &
+          npx serve -s build -l 3001 &
           sleep 5
-          PLAYWRIGHT_TEST_BASE_URL=http://localhost:3000 npx playwright test
+          PLAYWRIGHT_TEST_BASE_URL=http://localhost:3001 npx playwright test
 
       - uses: actions/upload-artifact@v3
         if: always()
