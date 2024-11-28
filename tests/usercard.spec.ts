@@ -12,10 +12,9 @@ test('user card visual comparison', async ({ page }) => {
 
   // Verify the accessibility tree structure
   await expect(userCard).toMatchAriaSnapshot(`
-    - generic "user-card":
-      - heading "John Doe" [level=3]
-      - text "john@example.com"
-      - button "Contact User"
+    - heading "John Doe" [level=4]
+    - paragraph: john@example.com
+    - button "Contact User"
   `)
 
   // Additional content verification

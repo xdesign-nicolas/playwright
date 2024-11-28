@@ -8,7 +8,7 @@ interface UserCardProps {
 export function UserCard({ name, email }: UserCardProps) {
   return (
     <div className="user-card">
-      <h3>{name}</h3>
+      <h4>{name}</h4>
       <p>{email}</p>
       <button>Contact User</button>
     </div>
