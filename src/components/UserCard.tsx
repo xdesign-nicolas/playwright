@@ -7,10 +7,10 @@ interface UserCardProps {
 
 export function UserCard({ name, email }: UserCardProps) {
   return (
-    <div className="user-card">
-      <h3>{name}</h3>
-      <p>{email}</p>
-      <button>Contact User</button>
+    <div className="user-card" data-testid="user-card">
+      <h3 data-testid="user-name">{name}</h3>
+      <p data-testid="user-email">{email}</p>
+      <button data-testid="contact-button">Contact User</button>
     </div>
   )
 }
