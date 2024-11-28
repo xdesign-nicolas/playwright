@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main, master]
 
+# Add these permissions at the workflow level
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test-and-deploy:
     timeout-minutes: 30
