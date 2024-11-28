@@ -4,6 +4,9 @@ test('counter functionality', async ({ page }) => {
   // Navigate to the page
   await page.goto('/')
 
+  // Wait for the counter component to be visible
+  await page.waitForSelector('.counter', { state: 'visible' })
+
   // Check initial state
   await expect(page.locator('.counter p')).toContainText('Current count: 0')
 
